@@ -14,7 +14,7 @@ jobs:
         run: pip install pytest
       - name: Check for API Keys (Secret Scan)
         run: |
-          if grep -r "AIza" --include="*.py" --include="*.yaml" --include="*.yml" --include="*.env" .; then
+          if grep -r "AIza" --include="*.py" --include="*.yaml" --include="*.yml" --include="*.env" --exclude-dir=".github" .; then
             echo "BLAD: Klucz API wykryty w repozytorium!"
             exit 1
           fi
