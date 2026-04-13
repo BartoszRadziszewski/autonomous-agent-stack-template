@@ -1,0 +1,18 @@
+agent_identity:
+  name: "FinVerifier"
+  role: "Audit & Verification"
+
+# Brakujące schematy i handling
+runtime_policy:
+  output_format: "JSON_STRICT" # Wymuszamy konkretny schemat odpowiedzi
+  cost_constraints:
+    max_req_cost: 0.05        # Stop jeśli pojedynczy prompt > 5 centów
+    daily_budget: 2.00
+  failure_handling:
+    on_api_error: "retry_with_exponential_backoff"
+    on_validation_fail: "escalate_to_human"
+    max_retries: 3
+
+tools:
+  - name: "sql_bridge"
+    enforce_integrity: true   # Wymaga HMAC przed wykonaniem

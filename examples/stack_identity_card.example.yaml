@@ -1,0 +1,5 @@
+stack_id: "DFE-2024-001"
+project_name: "MyFirstAgent"
+owner: "Student_Name"
+security_level: "High"
+core_model: "gemini-2.0-flash"

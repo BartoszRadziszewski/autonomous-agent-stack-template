@@ -1,0 +1,31 @@
+# Klucze i sekrety
+.env
+*.pem
+*.key
+
+# Srodowisko Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+
+# Dane runtime i logi (struktura Anti-Gravity)
+stack/logs/
+stack/memory/
+stack/security/
+stack/data/
+stack/config/*.yaml
+!stack/**/.gitkeep
+
+# Narzedzia wewnetrzne (nie dla publicznego repo)
+distribute_files.py
+_ensure_infrastructure.txt
+
+# Foldery wewnetrzne (staging i archiwum)
+archiwum/
+archive/
+
+# Systemowe
+.DS_Store
+Thumbs.db

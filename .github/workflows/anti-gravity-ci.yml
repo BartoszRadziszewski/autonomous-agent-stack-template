@@ -1,0 +1,22 @@
+name: Anti-Gravity Integrity Check
+on: [push, pull_request]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install pytest
+      - name: Check for API Keys (Secret Scan)
+        run: |
+          if grep -r "AIza" --include="*.py" --include="*.yaml" --include="*.yml" --include="*.env" .; then
+            echo "BLAD: Klucz API wykryty w repozytorium!"
+            exit 1
+          fi
+      - name: Run Security Tests
+        run: pytest test_security_rules.py -v

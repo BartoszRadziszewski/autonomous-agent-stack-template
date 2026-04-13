@@ -1,0 +1,7 @@
+google-generativeai>=0.3.0
+python-dotenv
+pyyaml
+pandas
+openpyxl
+chromadb
+pydantic
